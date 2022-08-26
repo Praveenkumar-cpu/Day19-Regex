@@ -76,7 +76,7 @@ public class Regex {
 
     }
     static void validPassWordRule2() {
-        //
+
         System.out.println("Enter Password at Least one UpperCase");
         Scanner sc = new Scanner(System.in);
         String passWord =  sc.next();
@@ -92,6 +92,26 @@ public class Regex {
         }
 
     }
+
+    static void validPassWordRule3() {
+
+        System.out.println("Enter Password at Least one Numeric");
+        Scanner sc = new Scanner(System.in);
+        String passWord =  sc.next();
+        String regex ="[A-Z]{1}[a-z]{6,}[0-9]{1}";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher =  p.matcher(passWord);
+        boolean result = matcher.matches();
+
+        if(result){
+            System.out.println("Valid PassWord");
+        }else {
+            System.out.println("Invalid PassWord");
+        }
+
+    }
+
+
 
 
     static void validateMobileNumber() {
@@ -112,12 +132,13 @@ public class Regex {
     }
 
     public static void main(String[] args) {
-//        validateFirstName();
-//        validateLName();
-//        validateEmail();
-//        validateMobileNumber();
+        validateFirstName();
+        validateLName();
+        validateEmail();
+        validateMobileNumber();
         validPassWordRule1();
         validPassWordRule2();
+        validPassWordRule3();
     }
 
 
