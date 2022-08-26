@@ -58,6 +58,24 @@ public class Regex {
         }
     }
 
+    static void validPassWordRule1() {
+        //
+        System.out.println("Enter Mobile Number");
+        Scanner sc = new Scanner(System.in);
+        String passWord =  sc.next();
+        String regex ="[a-zA-Z]{8,}";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher =  p.matcher(passWord);
+        boolean result = matcher.matches();
+
+        if(result){
+            System.out.println("Valid PassWord");
+        }else {
+            System.out.println("Invalid PassWord");
+        }
+
+    }
+
     static void validateMobileNumber() {
         //
         System.out.println("Enter Mobile Number");
@@ -74,12 +92,13 @@ public class Regex {
             System.out.println("Invalid number");
         }
     }
-    
+
     public static void main(String[] args) {
         validateFirstName();
         validateLName();
         validateEmail();
         validateMobileNumber();
+        validPassWordRule1();
     }
 
 
