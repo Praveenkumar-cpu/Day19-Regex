@@ -23,8 +23,6 @@ public class Regex {
             System.out.println("Please Enter valid Name");
         }
     }
-
-    
     static void validateLName() {
 
         Scanner sc = new Scanner(System.in);
@@ -42,12 +40,28 @@ public class Regex {
             System.out.println("Please Enter valid Name");
         }
     }
+    static void validateEmail() {
+        //E.g. abc.xyz@bl.co.in
+        System.out.println("Enter your Email");
+       Scanner sc = new Scanner(System.in);
+        String email = sc.next();
+        String regex = "[a-z]+.+[a-z]+[@]+[a-z]+.+[a-z]$";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher = p.matcher(email);
+        boolean result = matcher.matches();
 
+        if(result){
+            System.out.println("Valid Email");
+        }else {
+            System.out.println("Please Enter Valid Email");
+        }
+    }
 
 
     public static void main(String[] args) {
         validateFirstName();
         validateLName();
+        validateEmail();
     }
 
 }
