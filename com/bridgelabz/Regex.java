@@ -108,7 +108,23 @@ public class Regex {
         }else {
             System.out.println("Invalid PassWord");
         }
+    }
 
+    static void validPassWordRule4() {
+
+        System.out.println("Enter Password at Least one SpecialChar");
+        Scanner sc = new Scanner(System.in);
+        String passWord =  sc.next();
+        String regex ="[A-Z]{1}[a-z]{5,}[0-9]{1}[!@#$%^&*~]{1}";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher =  p.matcher(passWord);
+        boolean result = matcher.matches();
+
+        if(result){
+            System.out.println("Valid PassWord");
+        }else {
+            System.out.println("Invalid PassWord");
+        }
     }
 
 
@@ -131,6 +147,7 @@ public class Regex {
         }
     }
 
+
     public static void main(String[] args) {
         validateFirstName();
         validateLName();
@@ -139,6 +156,7 @@ public class Regex {
         validPassWordRule1();
         validPassWordRule2();
         validPassWordRule3();
+        validPassWordRule4();
     }
 
 
