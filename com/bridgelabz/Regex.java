@@ -10,7 +10,7 @@ public class Regex {
         // first name cap and min 3 char
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter FirstName");
-        String fname=sc.next();
+        String fname = sc.next();
         String regex = "[A-Z]{1}+[a-z]{3,}+$";
         Pattern p = Pattern.compile(regex);
         Matcher matcher = p.matcher(fname);
@@ -46,6 +46,7 @@ public class Regex {
        Scanner sc = new Scanner(System.in);
         String email = sc.next();
         String regex = "[a-z]+.+[a-z]+[@]+[a-z]+.+[a-z]$";
+
         Pattern p = Pattern.compile(regex);
         Matcher matcher = p.matcher(email);
         boolean result = matcher.matches();
@@ -57,11 +58,30 @@ public class Regex {
         }
     }
 
+    static void validateMobileNumber() {
+        //
+        System.out.println("Enter Mobile Number");
+        Scanner sc = new Scanner(System.in);
+        String number =  sc.next();
+        String regex ="\\d{10}";
+        Pattern p = Pattern.compile(regex);
+        Matcher matcher =  p.matcher(number);
+        boolean result = matcher.matches();
 
+        if(result){
+            System.out.println("Valid Number");
+        }else {
+            System.out.println("Invalid number");
+        }
+    }
+    
     public static void main(String[] args) {
         validateFirstName();
         validateLName();
         validateEmail();
+        validateMobileNumber();
     }
+
+
 
 }
